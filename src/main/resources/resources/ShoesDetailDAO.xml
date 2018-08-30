@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aurora.dao.ShoesDetailDAO">
+  <resultMap id="BaseResultMap" type="com.aurora.entity.ShoesDetail">
+    <id column="shoes_detail_id" jdbcType="INTEGER" property="shoesDetailId" />
+    <result column="shoes_id" jdbcType="INTEGER" property="shoesId" />
+    <result column="shoes_color_id" jdbcType="INTEGER" property="shoesColorId" />
+    <result column="shoes_size_id" jdbcType="INTEGER" property="shoesSizeId" />
+    <result column="shoes_inventory" jdbcType="INTEGER" property="shoesInventory" />
+    <result column="shoes_sale_count" jdbcType="INTEGER" property="shoesSaleCount" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    shoes_detail_id, shoes_id, shoes_color_id, shoes_size_id, shoes_inventory, shoes_sale_count, 
+    `status`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shoes_detail
+    where shoes_detail_id = #{shoesDetailId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from shoes_detail
+    where shoes_detail_id = #{shoesDetailId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aurora.entity.ShoesDetail">
+    insert into shoes_detail (shoes_detail_id, shoes_id, shoes_color_id, 
+      shoes_size_id, shoes_inventory, shoes_sale_count, 
+      `status`)
+    values (#{shoesDetailId,jdbcType=INTEGER}, #{shoesId,jdbcType=INTEGER}, #{shoesColorId,jdbcType=INTEGER}, 
+      #{shoesSizeId,jdbcType=INTEGER}, #{shoesInventory,jdbcType=INTEGER}, #{shoesSaleCount,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aurora.entity.ShoesDetail">
+    insert into shoes_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="shoesDetailId != null">
+        shoes_detail_id,
+      </if>
+      <if test="shoesId != null">
+        shoes_id,
+      </if>
+      <if test="shoesColorId != null">
+        shoes_color_id,
+      </if>
+      <if test="shoesSizeId != null">
+        shoes_size_id,
+      </if>
+      <if test="shoesInventory != null">
+        shoes_inventory,
+      </if>
+      <if test="shoesSaleCount != null">
+        shoes_sale_count,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="shoesDetailId != null">
+        #{shoesDetailId,jdbcType=INTEGER},
+      </if>
+      <if test="shoesId != null">
+        #{shoesId,jdbcType=INTEGER},
+      </if>
+      <if test="shoesColorId != null">
+        #{shoesColorId,jdbcType=INTEGER},
+      </if>
+      <if test="shoesSizeId != null">
+        #{shoesSizeId,jdbcType=INTEGER},
+      </if>
+      <if test="shoesInventory != null">
+        #{shoesInventory,jdbcType=INTEGER},
+      </if>
+      <if test="shoesSaleCount != null">
+        #{shoesSaleCount,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aurora.entity.ShoesDetail">
+    update shoes_detail
+    <set>
+      <if test="shoesId != null">
+        shoes_id = #{shoesId,jdbcType=INTEGER},
+      </if>
+      <if test="shoesColorId != null">
+        shoes_color_id = #{shoesColorId,jdbcType=INTEGER},
+      </if>
+      <if test="shoesSizeId != null">
+        shoes_size_id = #{shoesSizeId,jdbcType=INTEGER},
+      </if>
+      <if test="shoesInventory != null">
+        shoes_inventory = #{shoesInventory,jdbcType=INTEGER},
+      </if>
+      <if test="shoesSaleCount != null">
+        shoes_sale_count = #{shoesSaleCount,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where shoes_detail_id = #{shoesDetailId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aurora.entity.ShoesDetail">
+    update shoes_detail
+    set shoes_id = #{shoesId,jdbcType=INTEGER},
+      shoes_color_id = #{shoesColorId,jdbcType=INTEGER},
+      shoes_size_id = #{shoesSizeId,jdbcType=INTEGER},
+      shoes_inventory = #{shoesInventory,jdbcType=INTEGER},
+      shoes_sale_count = #{shoesSaleCount,jdbcType=INTEGER},
+      `status` = #{status,jdbcType=INTEGER}
+    where shoes_detail_id = #{shoesDetailId,jdbcType=INTEGER}
+  </update>
+</mapper>

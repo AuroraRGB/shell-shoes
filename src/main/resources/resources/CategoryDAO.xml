@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aurora.dao.CategoryDAO">
+  <resultMap id="BaseResultMap" type="com.aurora.entity.Category">
+    <id column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="category_name" jdbcType="VARCHAR" property="categoryName" />
+    <result column="category_desc" jdbcType="VARCHAR" property="categoryDesc" />
+    <result column="category_create_time" jdbcType="DATE" property="categoryCreateTime" />
+    <result column="category_update_time" jdbcType="DATE" property="categoryUpdateTime" />
+    <result column="category_status" jdbcType="TINYINT" property="categoryStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    category_id, category_name, category_desc, category_create_time, category_update_time, 
+    category_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from category
+    where category_id = #{categoryId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from category
+    where category_id = #{categoryId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aurora.entity.Category">
+    insert into category (category_id, category_name, category_desc, 
+      category_create_time, category_update_time, category_status
+      )
+    values (#{categoryId,jdbcType=INTEGER}, #{categoryName,jdbcType=VARCHAR}, #{categoryDesc,jdbcType=VARCHAR}, 
+      #{categoryCreateTime,jdbcType=DATE}, #{categoryUpdateTime,jdbcType=DATE}, #{categoryStatus,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aurora.entity.Category">
+    insert into category
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="categoryId != null">
+        category_id,
+      </if>
+      <if test="categoryName != null">
+        category_name,
+      </if>
+      <if test="categoryDesc != null">
+        category_desc,
+      </if>
+      <if test="categoryCreateTime != null">
+        category_create_time,
+      </if>
+      <if test="categoryUpdateTime != null">
+        category_update_time,
+      </if>
+      <if test="categoryStatus != null">
+        category_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryName != null">
+        #{categoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryDesc != null">
+        #{categoryDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryCreateTime != null">
+        #{categoryCreateTime,jdbcType=DATE},
+      </if>
+      <if test="categoryUpdateTime != null">
+        #{categoryUpdateTime,jdbcType=DATE},
+      </if>
+      <if test="categoryStatus != null">
+        #{categoryStatus,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aurora.entity.Category">
+    update category
+    <set>
+      <if test="categoryName != null">
+        category_name = #{categoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryDesc != null">
+        category_desc = #{categoryDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryCreateTime != null">
+        category_create_time = #{categoryCreateTime,jdbcType=DATE},
+      </if>
+      <if test="categoryUpdateTime != null">
+        category_update_time = #{categoryUpdateTime,jdbcType=DATE},
+      </if>
+      <if test="categoryStatus != null">
+        category_status = #{categoryStatus,jdbcType=TINYINT},
+      </if>
+    </set>
+    where category_id = #{categoryId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aurora.entity.Category">
+    update category
+    set category_name = #{categoryName,jdbcType=VARCHAR},
+      category_desc = #{categoryDesc,jdbcType=VARCHAR},
+      category_create_time = #{categoryCreateTime,jdbcType=DATE},
+      category_update_time = #{categoryUpdateTime,jdbcType=DATE},
+      category_status = #{categoryStatus,jdbcType=TINYINT}
+    where category_id = #{categoryId,jdbcType=INTEGER}
+  </update>
+</mapper>

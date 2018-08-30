@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aurora.dao.CartDAO">
+  <resultMap id="BaseResultMap" type="com.aurora.entity.Cart">
+    <id column="cart_id" jdbcType="INTEGER" property="cartId" />
+    <result column="cust_id" jdbcType="INTEGER" property="custId" />
+    <result column="shoes_detail_id" jdbcType="INTEGER" property="shoesDetailId" />
+    <result column="quality" jdbcType="VARCHAR" property="quality" />
+    <result column="add_time" jdbcType="DATE" property="addTime" />
+    <result column="update_time" jdbcType="DATE" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    cart_id, cust_id, shoes_detail_id, quality, add_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cart
+    where cart_id = #{cartId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cart
+    where cart_id = #{cartId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aurora.entity.Cart">
+    insert into cart (cart_id, cust_id, shoes_detail_id, 
+      quality, add_time, update_time
+      )
+    values (#{cartId,jdbcType=INTEGER}, #{custId,jdbcType=INTEGER}, #{shoesDetailId,jdbcType=INTEGER}, 
+      #{quality,jdbcType=VARCHAR}, #{addTime,jdbcType=DATE}, #{updateTime,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aurora.entity.Cart">
+    insert into cart
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cartId != null">
+        cart_id,
+      </if>
+      <if test="custId != null">
+        cust_id,
+      </if>
+      <if test="shoesDetailId != null">
+        shoes_detail_id,
+      </if>
+      <if test="quality != null">
+        quality,
+      </if>
+      <if test="addTime != null">
+        add_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cartId != null">
+        #{cartId,jdbcType=INTEGER},
+      </if>
+      <if test="custId != null">
+        #{custId,jdbcType=INTEGER},
+      </if>
+      <if test="shoesDetailId != null">
+        #{shoesDetailId,jdbcType=INTEGER},
+      </if>
+      <if test="quality != null">
+        #{quality,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=DATE},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aurora.entity.Cart">
+    update cart
+    <set>
+      <if test="custId != null">
+        cust_id = #{custId,jdbcType=INTEGER},
+      </if>
+      <if test="shoesDetailId != null">
+        shoes_detail_id = #{shoesDetailId,jdbcType=INTEGER},
+      </if>
+      <if test="quality != null">
+        quality = #{quality,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null">
+        add_time = #{addTime,jdbcType=DATE},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=DATE},
+      </if>
+    </set>
+    where cart_id = #{cartId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aurora.entity.Cart">
+    update cart
+    set cust_id = #{custId,jdbcType=INTEGER},
+      shoes_detail_id = #{shoesDetailId,jdbcType=INTEGER},
+      quality = #{quality,jdbcType=VARCHAR},
+      add_time = #{addTime,jdbcType=DATE},
+      update_time = #{updateTime,jdbcType=DATE}
+    where cart_id = #{cartId,jdbcType=INTEGER}
+  </update>
+</mapper>

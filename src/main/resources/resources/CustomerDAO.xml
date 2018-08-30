@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aurora.dao.CustomerDAO">
+  <resultMap id="BaseResultMap" type="com.aurora.entity.Customer">
+    <id column="cust_id" jdbcType="INTEGER" property="custId" />
+    <result column="cust_name" jdbcType="VARCHAR" property="custName" />
+    <result column="cust_pwd" jdbcType="VARCHAR" property="custPwd" />
+    <result column="cust_age" jdbcType="INTEGER" property="custAge" />
+    <result column="cust_phone" jdbcType="INTEGER" property="custPhone" />
+    <result column="cust_email" jdbcType="VARCHAR" property="custEmail" />
+    <result column="cust_create_time" jdbcType="TIMESTAMP" property="custCreateTime" />
+    <result column="cust_update_time" jdbcType="TIMESTAMP" property="custUpdateTime" />
+    <result column="cust_profile" jdbcType="VARCHAR" property="custProfile" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    cust_id, cust_name, cust_pwd, cust_age, cust_phone, cust_email, cust_create_time, 
+    cust_update_time, cust_profile
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from customer
+    where cust_id = #{custId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from customer
+    where cust_id = #{custId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aurora.entity.Customer">
+    insert into customer (cust_id, cust_name, cust_pwd, 
+      cust_age, cust_phone, cust_email, 
+      cust_create_time, cust_update_time, cust_profile
+      )
+    values (#{custId,jdbcType=INTEGER}, #{custName,jdbcType=VARCHAR}, #{custPwd,jdbcType=VARCHAR}, 
+      #{custAge,jdbcType=INTEGER}, #{custPhone,jdbcType=INTEGER}, #{custEmail,jdbcType=VARCHAR}, 
+      #{custCreateTime,jdbcType=TIMESTAMP}, #{custUpdateTime,jdbcType=TIMESTAMP}, #{custProfile,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aurora.entity.Customer">
+    insert into customer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="custId != null">
+        cust_id,
+      </if>
+      <if test="custName != null">
+        cust_name,
+      </if>
+      <if test="custPwd != null">
+        cust_pwd,
+      </if>
+      <if test="custAge != null">
+        cust_age,
+      </if>
+      <if test="custPhone != null">
+        cust_phone,
+      </if>
+      <if test="custEmail != null">
+        cust_email,
+      </if>
+      <if test="custCreateTime != null">
+        cust_create_time,
+      </if>
+      <if test="custUpdateTime != null">
+        cust_update_time,
+      </if>
+      <if test="custProfile != null">
+        cust_profile,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="custId != null">
+        #{custId,jdbcType=INTEGER},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="custPwd != null">
+        #{custPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="custAge != null">
+        #{custAge,jdbcType=INTEGER},
+      </if>
+      <if test="custPhone != null">
+        #{custPhone,jdbcType=INTEGER},
+      </if>
+      <if test="custEmail != null">
+        #{custEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="custCreateTime != null">
+        #{custCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custUpdateTime != null">
+        #{custUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custProfile != null">
+        #{custProfile,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aurora.entity.Customer">
+    update customer
+    <set>
+      <if test="custName != null">
+        cust_name = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="custPwd != null">
+        cust_pwd = #{custPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="custAge != null">
+        cust_age = #{custAge,jdbcType=INTEGER},
+      </if>
+      <if test="custPhone != null">
+        cust_phone = #{custPhone,jdbcType=INTEGER},
+      </if>
+      <if test="custEmail != null">
+        cust_email = #{custEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="custCreateTime != null">
+        cust_create_time = #{custCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custUpdateTime != null">
+        cust_update_time = #{custUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custProfile != null">
+        cust_profile = #{custProfile,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cust_id = #{custId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aurora.entity.Customer">
+    update customer
+    set cust_name = #{custName,jdbcType=VARCHAR},
+      cust_pwd = #{custPwd,jdbcType=VARCHAR},
+      cust_age = #{custAge,jdbcType=INTEGER},
+      cust_phone = #{custPhone,jdbcType=INTEGER},
+      cust_email = #{custEmail,jdbcType=VARCHAR},
+      cust_create_time = #{custCreateTime,jdbcType=TIMESTAMP},
+      cust_update_time = #{custUpdateTime,jdbcType=TIMESTAMP},
+      cust_profile = #{custProfile,jdbcType=VARCHAR}
+    where cust_id = #{custId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aurora.dao.ShoesSizeDAO">
+  <resultMap id="BaseResultMap" type="com.aurora.entity.ShoesSize">
+    <id column="shoes_size_id" jdbcType="INTEGER" property="shoesSizeId" />
+    <result column="shoes_size" jdbcType="REAL" property="shoesSize" />
+    <result column="shoes_state" jdbcType="BIT" property="shoesState" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    shoes_size_id, shoes_size, shoes_state
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shoes_size
+    where shoes_size_id = #{shoesSizeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from shoes_size
+    where shoes_size_id = #{shoesSizeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aurora.entity.ShoesSize">
+    insert into shoes_size (shoes_size_id, shoes_size, shoes_state
+      )
+    values (#{shoesSizeId,jdbcType=INTEGER}, #{shoesSize,jdbcType=REAL}, #{shoesState,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aurora.entity.ShoesSize">
+    insert into shoes_size
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="shoesSizeId != null">
+        shoes_size_id,
+      </if>
+      <if test="shoesSize != null">
+        shoes_size,
+      </if>
+      <if test="shoesState != null">
+        shoes_state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="shoesSizeId != null">
+        #{shoesSizeId,jdbcType=INTEGER},
+      </if>
+      <if test="shoesSize != null">
+        #{shoesSize,jdbcType=REAL},
+      </if>
+      <if test="shoesState != null">
+        #{shoesState,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aurora.entity.ShoesSize">
+    update shoes_size
+    <set>
+      <if test="shoesSize != null">
+        shoes_size = #{shoesSize,jdbcType=REAL},
+      </if>
+      <if test="shoesState != null">
+        shoes_state = #{shoesState,jdbcType=BIT},
+      </if>
+    </set>
+    where shoes_size_id = #{shoesSizeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aurora.entity.ShoesSize">
+    update shoes_size
+    set shoes_size = #{shoesSize,jdbcType=REAL},
+      shoes_state = #{shoesState,jdbcType=BIT}
+    where shoes_size_id = #{shoesSizeId,jdbcType=INTEGER}
+  </update>
+</mapper>
