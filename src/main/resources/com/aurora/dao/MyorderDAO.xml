@@ -23,7 +23,7 @@
     delete from myorder
     where order_id = #{orderId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.aurora.entity.Myorder">
+  <insert id="save" parameterType="com.aurora.entity.Myorder">
     insert into myorder (order_id, order_number, cust_id, 
       order_time, order_price, order_address_id, 
       order_status)
