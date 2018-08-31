@@ -13,6 +13,12 @@
     category_id, category_name, category_desc, category_create_time, category_update_time, 
     category_status
   </sql>
+
+  <!--查询所有鞋子种类-->
+  <select id="queryAll" resultMap="BaseResultMap">
+    select * from category
+  </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

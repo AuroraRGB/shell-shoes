@@ -32,8 +32,7 @@
 
     <!-- 导入mapper文件 -->
     <mappers>
-        <!--<mapper resource="com/chixing/mapper/CustomerMapper.xml" />-->
-        <!--<package name="com.chixing.mapper"/>-->
+        <package name="com.aurora.dao"/>
     </mappers>
 
 </configuration>
