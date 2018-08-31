@@ -11,6 +11,7 @@
   <sql id="Base_Column_List">
     order_id, shoes_detail_id, quality, order_shoes_color, order_shoes_size
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="com.aurora.entity.OrderDetailKey" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -18,11 +19,13 @@
     where order_id = #{orderId,jdbcType=INTEGER}
       and shoes_detail_id = #{shoesDetailId,jdbcType=INTEGER}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="com.aurora.entity.OrderDetailKey">
     delete from order_detail
     where order_id = #{orderId,jdbcType=INTEGER}
       and shoes_detail_id = #{shoesDetailId,jdbcType=INTEGER}
   </delete>
+
   <insert id="insert" parameterType="com.aurora.entity.OrderDetail">
     insert into order_detail (order_id, shoes_detail_id, quality, 
       order_shoes_color, order_shoes_size)
