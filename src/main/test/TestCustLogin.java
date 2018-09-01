@@ -30,7 +30,7 @@ public class TestCustLogin {
         SqlSession sqlSession = MyBatisUtil.getSession();
         CustLoginDAO dao = sqlSession.getMapper(CustLoginDAO.class);
         CustLogin custLogin =new CustLogin();
-        custLogin.setLoginId(3);
+        custLogin.setLoginId(4);
         custLogin.setLoginName("Ada");
         custLogin.setLoginPwd("123456");
         custLogin.setLoginTime(new Date());
