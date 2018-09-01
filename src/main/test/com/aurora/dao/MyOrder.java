@@ -4,7 +4,7 @@ import com.aurora.util.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 import java.util.Date;
-public class myOrder {
+public class MyOrder {
 //    测试添加订单功能
     @Test
     public void testMyOrder(){
@@ -28,6 +28,15 @@ public class myOrder {
         int influenced        = myorderDAO.save(myorder);
         System.out.println(influenced);
         session.commit();
+    }
+
+    @Test
+    public void testUpdateStatus(){
+        SqlSession session   =MyBatisUtil.getSession();
+        MyorderDAO myorderDAO=session.getMapper(MyorderDAO.class);
+        myorderDAO.updateStatus(1,3);
+        session.commit();
+        session.close();
     }
 
 

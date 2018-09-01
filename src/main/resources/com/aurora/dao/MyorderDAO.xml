@@ -114,4 +114,11 @@
       order_status = #{orderStatus,jdbcType=INTEGER}
     where order_id = #{orderId,jdbcType=INTEGER}
   </update>
+
+
+  <update id="updateStatus">
+    update myorder
+    set order_status=#{status,jdbcType=INTEGER}
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </update>
 </mapper>
