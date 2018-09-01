@@ -4,35 +4,42 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
+
+
 <configuration>
+    <!--设置配置文件-->
+
+    <properties resource="db.properties"/>
+
+    <!--设置使用resultType-->
+
     <settings>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
-        <setting name="lazyLoadingEnabled" value="true"/>
-        <setting name="logImpl" value="LOG4J2"/>
+        <setting name="logImpl" value="LOG4J2" />
     </settings>
+
+    <!-- autoMappingBehavior should be set in each test case -->
 
     <environments default="development">
         <environment id="development">
-            <!-- 事务管理 -->
+            <!--事务管理-->
             <transactionManager type="JDBC">
                 <property name="" value=""/>
             </transactionManager>
-
-            <!-- 数据源 -->
+            <!--未配置连接池-->
             <dataSource type="UNPOOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://47.100.247.29:3306/shell-shoes?useSSL=false&amp;characterEncoding=utf8"/>
-                <property name="username" value="root"/>
-                <property name="password" value="12345678"/>
+                <!--数据与阿配置-->
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
             </dataSource>
-
         </environment>
-
     </environments>
 
-    <!-- 导入mapper文件 -->
     <mappers>
         <package name="com.aurora.dao"/>
     </mappers>
 
 </configuration>
+
