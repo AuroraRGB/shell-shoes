@@ -9,7 +9,7 @@
   <sql id="Base_Column_List">
     shoes_color_id, shoes_color_name, shoes_color_status
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="queryAllColorByShoesId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from shoes_color

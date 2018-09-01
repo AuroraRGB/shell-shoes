@@ -1,8 +1,9 @@
 package com.aurora.dao;
 
+import com.aurora.entity.ShoesSize;
+
 import java.io.Serializable;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 /**
  * DAO公共基类，由MybatisGenerator自动生成请勿修改
@@ -16,7 +17,7 @@ public interface MyBatisBaseDao<Model, PK extends Serializable> {
 
     int insertSelective(Model record);
 
-    Model selectByPrimaryKey(PK id);
+    List<ShoesSize> selectByPrimaryKey(PK id);
 
     int updateByPrimaryKeySelective(Model record);
 

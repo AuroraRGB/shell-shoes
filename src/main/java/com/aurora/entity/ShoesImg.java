@@ -49,6 +49,16 @@ public class ShoesImg implements Serializable {
         this.sortNo = sortNo;
     }
 
+    public ShoesImg() {
+    }
+
+    public ShoesImg(Integer imgId, Integer shoesId, String imgPath, Integer sortNo) {
+        this.imgId = imgId;
+        this.shoesId = shoesId;
+        this.imgPath = imgPath;
+        this.sortNo = sortNo;
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {

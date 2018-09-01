@@ -4,12 +4,12 @@
   <resultMap id="BaseResultMap" type="com.aurora.entity.ShoesSize">
     <id column="shoes_size_id" jdbcType="INTEGER" property="shoesSizeId" />
     <result column="shoes_size" jdbcType="REAL" property="shoesSize" />
-    <result column="shoes_state" jdbcType="BIT" property="shoesState" />
+    <result column="shoes_state" jdbcType="INTEGER" property="shoesState" />
   </resultMap>
   <sql id="Base_Column_List">
     shoes_size_id, shoes_size, shoes_state
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="queryAllSizeByShoesId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from shoes_size
@@ -22,7 +22,7 @@
   <insert id="insert" parameterType="com.aurora.entity.ShoesSize">
     insert into shoes_size (shoes_size_id, shoes_size, shoes_state
       )
-    values (#{shoesSizeId,jdbcType=INTEGER}, #{shoesSize,jdbcType=REAL}, #{shoesState,jdbcType=BIT}
+    values (#{shoesSizeId,jdbcType=INTEGER}, #{shoesSize,jdbcType=REAL}, #{shoesState,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.aurora.entity.ShoesSize">
@@ -46,7 +46,7 @@
         #{shoesSize,jdbcType=REAL},
       </if>
       <if test="shoesState != null">
-        #{shoesState,jdbcType=BIT},
+        #{shoesState,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -57,7 +57,7 @@
         shoes_size = #{shoesSize,jdbcType=REAL},
       </if>
       <if test="shoesState != null">
-        shoes_state = #{shoesState,jdbcType=BIT},
+        shoes_state = #{shoesState,jdbcType=INTEGER},
       </if>
     </set>
     where shoes_size_id = #{shoesSizeId,jdbcType=INTEGER}
@@ -65,7 +65,7 @@
   <update id="updateByPrimaryKey" parameterType="com.aurora.entity.ShoesSize">
     update shoes_size
     set shoes_size = #{shoesSize,jdbcType=REAL},
-      shoes_state = #{shoesState,jdbcType=BIT}
+      shoes_state = #{shoesState,jdbcType=INTEGER}
     where shoes_size_id = #{shoesSizeId,jdbcType=INTEGER}
   </update>
 </mapper>
