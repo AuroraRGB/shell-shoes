@@ -132,4 +132,17 @@ public class Myorder implements Serializable {
         sb.append("]");
         return sb.toString();
     }
+
+    public Myorder(Integer orderId, String orderNumber, Integer custId, Date orderTime, Float orderPrice, Integer orderAddressId, Integer orderStatus) {
+        this.orderId = orderId;
+        this.orderNumber = orderNumber;
+        this.custId = custId;
+        this.orderTime = orderTime;
+        this.orderPrice = orderPrice;
+        this.orderAddressId = orderAddressId;
+        this.orderStatus = orderStatus;
+    }
+
+    public Myorder() {
+    }
 }
