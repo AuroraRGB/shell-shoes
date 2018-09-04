@@ -1,6 +1,6 @@
 package com.aurora.dao;
 
-import com.aurora.entity.ShoesColor;
+import com.aurora.model.entity.ShoesColor;
 
 /**
  * ShoesColorDAO继承基类

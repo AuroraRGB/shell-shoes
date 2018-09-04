@@ -1,7 +1,7 @@
 package com.aurora.dao;
 
-import com.aurora.entity.OrderDetail;
-import com.aurora.entity.OrderDetailKey;
+import com.aurora.model.entity.OrderDetail;
+import com.aurora.model.entity.OrderDetailKey;
 import com.aurora.util.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
@@ -21,7 +21,7 @@ public class OrderDetailTest {
     @Test
     public void testSaveDetails(){
         SqlSession session                        = MyBatisUtil.getSession();
-        com.aurora.entity.OrderDetail orderDetail = new com.aurora.entity.OrderDetail();
+        OrderDetail orderDetail = new OrderDetail();
         orderDetail.setOrderId(3);
         orderDetail.setQuality(1);
         orderDetail.setShoesDetailId(1);

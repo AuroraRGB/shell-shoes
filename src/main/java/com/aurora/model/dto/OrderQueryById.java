@@ -1,4 +1,4 @@
-package com.aurora.DTO;
+package com.aurora.model.dto;
 
 import java.util.Date;
 

@@ -1,6 +1,6 @@
 package com.aurora.dao;
 
-import com.aurora.entity.Customer;
+import com.aurora.model.entity.Customer;
 
 /**
  * CustomerDAO继承基类

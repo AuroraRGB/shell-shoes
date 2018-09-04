@@ -1,6 +1,6 @@
 package com.aurora.dao;
 
-import com.aurora.entity.ShoesDetail;
+import com.aurora.model.entity.ShoesDetail;
 
 /**
  * ShoesDetailDAO继承基类

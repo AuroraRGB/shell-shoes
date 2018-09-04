@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aurora.dao.CartDAO">
-  <resultMap id="BaseResultMap" type="com.aurora.entity.Cart">
+  <resultMap id="BaseResultMap" type="com.aurora.model.entity.Cart">
     <id column="cart_id" jdbcType="INTEGER" property="cartId" />
     <result column="cust_id" jdbcType="INTEGER" property="custId" />
     <result column="shoes_detail_id" jdbcType="INTEGER" property="shoesDetailId" />
@@ -22,7 +22,7 @@
     delete from cart
     where cart_id = #{cartId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.aurora.entity.Cart">
+  <insert id="insert" parameterType="com.aurora.model.entity.Cart">
     insert into cart (cart_id, cust_id, shoes_detail_id, 
       quality, add_time, update_time
       )
@@ -30,7 +30,7 @@
       #{quality,jdbcType=VARCHAR}, #{addTime,jdbcType=DATE}, #{updateTime,jdbcType=DATE}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.aurora.entity.Cart">
+  <insert id="insertSelective" parameterType="com.aurora.model.entity.Cart">
     insert into cart
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="cartId != null">
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aurora.entity.Cart">
+  <update id="updateByPrimaryKeySelective" parameterType="com.aurora.model.entity.Cart">
     update cart
     <set>
       <if test="custId != null">
@@ -94,7 +94,7 @@
     </set>
     where cart_id = #{cartId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.aurora.entity.Cart">
+  <update id="updateByPrimaryKey" parameterType="com.aurora.model.entity.Cart">
     update cart
     set cust_id = #{custId,jdbcType=INTEGER},
       shoes_detail_id = #{shoesDetailId,jdbcType=INTEGER},

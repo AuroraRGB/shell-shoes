@@ -1,12 +1,10 @@
 package com.aurora.dao;
-import com.aurora.DTO.OrderQueryById;
-import com.aurora.entity.Myorder;
-import com.aurora.entity.OrderDetail;
+import com.aurora.model.dto.OrderQueryById;
+import com.aurora.model.entity.Myorder;
 import com.aurora.util.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 

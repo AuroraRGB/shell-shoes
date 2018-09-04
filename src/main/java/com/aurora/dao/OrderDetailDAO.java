@@ -1,8 +1,7 @@
 package com.aurora.dao;
 
-import com.aurora.entity.OrderDetail;
-import com.aurora.entity.OrderDetailKey;
-import org.apache.ibatis.annotations.Param;
+import com.aurora.model.entity.OrderDetail;
+import com.aurora.model.entity.OrderDetailKey;
 
 /**
  * OrderDetailDAO继承基类

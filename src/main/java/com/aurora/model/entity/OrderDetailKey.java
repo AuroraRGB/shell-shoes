@@ -1,4 +1,4 @@
-package com.aurora.entity;
+package com.aurora.model.entity;
 
 import java.io.Serializable;
 

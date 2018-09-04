@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aurora.dao.MyorderDAO">
 
-  <resultMap id="BaseResultMap" type="com.aurora.entity.Myorder">
+  <resultMap id="BaseResultMap" type="com.aurora.model.entity.Myorder">
     <id column="order_id" jdbcType="INTEGER" property="orderId" />
     <result column="order_number" jdbcType="VARCHAR" property="orderNumber" />
     <result column="cust_id" jdbcType="INTEGER" property="custId" />
@@ -34,7 +34,7 @@
     where cust_id=#{custId} and sh.shoes_name=#{shoesName};
   </select>
 
-  <select id="queryById" resultType="com.aurora.DTO.OrderQueryById">
+  <select id="queryById" resultType="com.aurora.model.dto.OrderQueryById">
     select
        my.order_number,my.order_time,
        my.order_price,a.address_province,
@@ -54,7 +54,7 @@ where my.order_number=#{orderNumber} and my.cust_id=#{custId}
     where order_id = #{orderId,jdbcType=INTEGER}
   </delete>
 
-  <insert id="save" parameterType="com.aurora.entity.Myorder">
+  <insert id="save" parameterType="com.aurora.model.entity.Myorder">
     insert into myorder (order_id, order_number, cust_id, 
       order_time, order_price, order_address_id, 
       order_status)
@@ -63,7 +63,7 @@ where my.order_number=#{orderNumber} and my.cust_id=#{custId}
       #{orderStatus,jdbcType=INTEGER})
   </insert>
 
-  <insert id="insertSelective" parameterType="com.aurora.entity.Myorder">
+  <insert id="insertSelective" parameterType="com.aurora.model.entity.Myorder">
     insert into myorder
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="orderId != null">
@@ -113,7 +113,7 @@ where my.order_number=#{orderNumber} and my.cust_id=#{custId}
     </trim>
   </insert>
 
-  <update id="updateByPrimaryKeySelective" parameterType="com.aurora.entity.Myorder">
+  <update id="updateByPrimaryKeySelective" parameterType="com.aurora.model.entity.Myorder">
     update myorder
     <set>
       <if test="orderNumber != null">
@@ -138,7 +138,7 @@ where my.order_number=#{orderNumber} and my.cust_id=#{custId}
     where order_id = #{orderId,jdbcType=INTEGER}
   </update>
 
-  <update id="updateByPrimaryKey" parameterType="com.aurora.entity.Myorder">
+  <update id="updateByPrimaryKey" parameterType="com.aurora.model.entity.Myorder">
     update myorder
     set order_number = #{orderNumber,jdbcType=VARCHAR},
       cust_id = #{custId,jdbcType=INTEGER},

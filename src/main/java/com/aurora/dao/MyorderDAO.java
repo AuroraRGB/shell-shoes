@@ -1,7 +1,7 @@
 package com.aurora.dao;
 
-import com.aurora.DTO.OrderQueryById;
-import com.aurora.entity.Myorder;
+import com.aurora.model.dto.OrderQueryById;
+import com.aurora.model.entity.Myorder;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
