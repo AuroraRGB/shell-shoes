@@ -10,12 +10,14 @@ import java.io.IOException;
 
 
 
-@WebServlet(name = "HelloServlet",urlPatterns = "/abc")
+@WebServlet(name = "HelloServlet",urlPatterns = "/helloServlet")
 
 public class HelloServlet extends HttpServlet {
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (null !=request.getParameterValues("good") && null !=request.getParameter("geender")){
+
+        if (null !=request.getParameterValues("good") && null !=request.getParameter("gender")){
             String[] goods  = request.getParameterValues("good");
             String   gender = request.getParameter("gender");
             for (String s:goods){
@@ -25,6 +27,5 @@ public class HelloServlet extends HttpServlet {
         }else {
             System.out.println("未选择无法进行输出");
         }
-
     }
 }

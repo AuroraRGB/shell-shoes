@@ -139,4 +139,11 @@
       cust_profile = #{custProfile,jdbcType=VARCHAR}
     where cust_id = #{custId,jdbcType=INTEGER}
   </update>
+
+  <select id="getByName" resultType="com.aurora.model.entity.Customer">
+    select
+    <include refid="Base_Column_List" />
+    from customer
+    where cust_name = #{customerName}
+  </select>
 </mapper>

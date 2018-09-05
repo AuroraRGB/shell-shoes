@@ -51,7 +51,7 @@
     </div>
 
     <div id="middle">
-
+        <h1><%=session.getAttribute("userName")%></h1>
     </div>
 
 

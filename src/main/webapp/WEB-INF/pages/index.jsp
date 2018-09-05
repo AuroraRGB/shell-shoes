@@ -13,7 +13,7 @@
 <body>
     <h1>hello java</h1>
 
-    <form action="/abc" method="post">
+    <form action="/helloServlet" method="post">
 
         <input type=text>
         <input type="checkbox" name="good" value="good1">商品1
