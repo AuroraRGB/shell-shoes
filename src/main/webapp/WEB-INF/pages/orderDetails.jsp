@@ -1,3 +1,4 @@
+
 <%--
   Created by IntelliJ IDEA.
   User: tigerwhale
@@ -54,7 +55,6 @@
         <div id="middleSearch">
             搜索框
         </div>
-
         <script>
             for (let n = 0; n<5; n++) {
                 let oDiv=document.createElement('div');
