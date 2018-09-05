@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
         if (flag){
             HttpSession session=request.getSession();
             session.setAttribute("userName",userName);
-            response.sendRedirect("/orderDetail");
+            response.sendRedirect("/orderDetailsServlet");
         }else {
             request.getRequestDispatcher("WEB-INF/pages/orderDetails.jsp").forward(request,response);
         }

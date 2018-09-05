@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "OrderDetailServlet" ,urlPatterns = "/orderDetail")
+@WebServlet(name = "OrderDetailUIServlet" ,urlPatterns = "/orderDetail")
 public class OrderDetailUIServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("WEB-INF/pages/orderDetail.jsp").forward(request,response);
+        request.getRequestDispatcher("orderServlet").forward(request,response);
     }
 }

@@ -10,6 +10,7 @@ import java.util.List;
  * MyorderDAO继承基类
  */
 public interface MyorderDAO extends MyBatisBaseDao<Myorder, Integer> {
+
     int save(Myorder order);
 
     int updateStatus(@Param("status") Integer status, @Param("orderId") Integer orderId);

@@ -51,7 +51,11 @@
     </div>
 
     <div id="middle">
-        <h1><%=session.getAttribute("userName")%></h1>
+        <h1>查询订单界面</h1>
+        <span>订单编号<%=request.getAttribute("orderNumber")%></span>
+        <span>订单价格<%=request.getAttribute("orderPrice")%>></span>
+        <span>用户地址id<%=request.getAttribute("orderAddressPrice")%></span>
+        <span>订单状态<%=request.getAttribute("orderStatus")%></span>
     </div>
 
 

@@ -51,19 +51,29 @@
         </div>
     </div>
 
+    <form action="/orderDetailsServlet">
+
     <div id="middle">
         <div id="middleSearch">
             搜索框
         </div>
+
         <script>
-            for (let n = 0; n<5; n++) {
-                let oDiv=document.createElement('div');
-                oDiv.id = 'oDiv';
+            for (let n = 0; n<<%=session.getAttribute("listNumber")%>; n++) {
+                let oDiv  = document.createElement('div');
+                let oNDiv = document.createElement('div');
+                let oPDiv = document.createElement('div');
+                oDiv.id  = 'oDiv';
+                oNDiv.id = 'oNDiv';
+                oPDiv.id = 'oPDiv';
                 document.getElementById("middle").appendChild(oDiv);
+                document.getElementById("oDiv").appendChild(oNDiv);
+                document.getElementById('oDiv').appendChild(oPDiv);
             }
         </script>
     </div>
 
+    </form>
 
     <div id="orderBottom">
         <div id="orderBottomTop">
