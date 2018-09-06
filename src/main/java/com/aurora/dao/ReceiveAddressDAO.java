@@ -12,6 +12,7 @@ import java.util.List;
  */
 public interface ReceiveAddressDAO extends MyBatisBaseDao<ReceiveAddress, Integer> {
 
+
     /**
      * save : 添加收件地址
      * @param newAddress : 新地址
@@ -50,5 +51,11 @@ public interface ReceiveAddressDAO extends MyBatisBaseDao<ReceiveAddress, Intege
      * @return : 返回受影响行数
      */
     int UpdateDefaultAddress(@Param("addressId") Integer addressId, @Param("custId") Integer custId);
+
+    /**
+     @param newAddress 新增的收件地址对象
+     @return 返回受影响行数
+     */
+    int save(ReceiveAddress newAddress);
 
 }

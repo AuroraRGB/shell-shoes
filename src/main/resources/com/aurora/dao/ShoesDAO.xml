@@ -15,11 +15,65 @@
     <result column="shoes_status" jdbcType="TINYINT" property="shoesStatus" />
     <result column="category_id" jdbcType="INTEGER" property="categoryId" />
   </resultMap>
+
+  <resultMap id="ShoesDetail" type="com.aurora.entity.ShoesDetail">
+    <id column="shoes_detail_id" jdbcType="INTEGER" property="shoesDetailId" />
+    <result column="shoes_id" jdbcType="INTEGER" property="shoesId" />
+    <result column="shoes_color_id" jdbcType="INTEGER" property="shoesColorId" />
+    <result column="shoes_size_id" jdbcType="INTEGER" property="shoesSizeId" />
+    <result column="shoes_inventory" jdbcType="INTEGER" property="shoesInventory" />
+    <result column="shoes_sale_count" jdbcType="INTEGER" property="shoesSaleCount" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+
   <sql id="Base_Column_List">
     shoes_id, shoes_number, shoes_name, shoes_price_sale, shoes_discount, shoes_desc, 
     shoes_onsale_time, shoes_offsale_time, shoes_sale_count, shoes_gender, shoes_status, 
     category_id
   </sql>
+
+  <!--查询所有鞋子-->
+  <select id="queryAll" resultMap="BaseResultMap">
+    select * from shoes
+  </select>
+
+  <!--根据鞋子名称查询鞋子信息-->
+  <select id="queryByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select *
+    from shoes
+    where shoes_name like CONCAT('%', #{shoesName}, '%')
+  </select>
+
+    <!--根据鞋子所属性别查询鞋子信息-->
+    <select id="queryByGender" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select *
+        from shoes
+        where shoes_gender = #{gender}
+    </select>
+
+    <!--根据鞋子价格范围查询鞋子信息-->
+    <select id="queryByPrice" resultMap="BaseResultMap">
+        select *
+        from shoes
+        where shoes_price_sale between #{min} and #{max}
+    </select>
+
+    <!--根据鞋子的类别查看鞋子信息-->
+    <select id="queryByCategory" resultMap="BaseResultMap">
+        select *
+        from shoes
+        where category_id = #{categoryId}
+    </select>
+
+    <!--根据鞋子码数查询鞋子信息-->
+    <select id="queryBySize" resultMap="ShoesDetail">
+        select *
+        from shoes_detail
+        where shoes_size_id = (select shoes_size_id from shoes_size where shoes_size = #{size})
+    </select>
+
+
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

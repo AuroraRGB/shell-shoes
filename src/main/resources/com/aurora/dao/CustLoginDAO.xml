@@ -10,9 +10,55 @@
     <result column="login_status" jdbcType="INTEGER" property="loginStatus" />
     <result column="cust_id" jdbcType="INTEGER" property="custId" />
   </resultMap>
+
+  <resultMap id="customer" type="com.aurora.entity.Customer">
+    <id column="cust_id" jdbcType="INTEGER" property="custId" />
+    <result column="cust_name" jdbcType="VARCHAR" property="custName" />
+    <result column="cust_pwd" jdbcType="VARCHAR" property="custPwd" />
+    <result column="cust_age" jdbcType="INTEGER" property="custAge" />
+    <result column="cust_phone" jdbcType="INTEGER" property="custPhone" />
+    <result column="cust_email" jdbcType="VARCHAR" property="custEmail" />
+    <result column="cust_create_time" jdbcType="TIMESTAMP" property="custCreateTime" />
+    <result column="cust_update_time" jdbcType="TIMESTAMP" property="custUpdateTime" />
+    <result column="cust_profile" jdbcType="VARCHAR" property="custProfile" />
+  </resultMap>
+
   <sql id="Base_Column_List">
     login_id, login_name, login_pwd, login_time, login_ip, login_status, cust_id
   </sql>
+
+  <!--判断用户登录的手机号与密码是否正确-->
+  <select id="checkTelnoAndPwd" resultMap="customer">
+    select cust_id,cust_name, cust_pwd,
+           cust_age, cust_phone, cust_email,
+           cust_create_time, cust_update_time, cust_profile
+    from customer
+    where cust_phone = #{telno} and cust_pwd = #{password}
+  </select>
+
+  <!-- 判断用户登录的邮箱与密码是否正确-->
+  <select id="checkEmailAndPwd" resultMap="customer">
+    select cust_id,cust_name, cust_pwd,
+           cust_age, cust_phone, cust_email,
+           cust_create_time, cust_update_time, cust_profile
+    from customer
+    where cust_email = #{email} and cust_pwd = #{password}
+  </select>
+
+<!--添加登录记录-->
+  <insert id="save" parameterType="com.aurora.entity.CustLogin">
+    insert into cust_login (login_id, login_name, login_pwd,
+                            login_time, login_ip, login_status,
+                            cust_id)
+    values (#{loginId,jdbcType=INTEGER}, #{loginName,jdbcType=VARCHAR}, #{loginPwd,jdbcType=VARCHAR},
+            #{loginTime,jdbcType=DATE}, #{loginIp,jdbcType=VARCHAR}, #{loginStatus,jdbcType=INTEGER},
+            #{custId,jdbcType=INTEGER})
+  </insert>
+
+
+
+
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

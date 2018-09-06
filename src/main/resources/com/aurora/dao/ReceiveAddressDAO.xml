@@ -35,6 +35,20 @@
   </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <!--添加-->
+  <insert id="save1" parameterType="com.aurora.entity.ReceiveAddress">
+    insert into receive_address (address_id, address_province, address_city,
+      address_area, address_street, address_detail,
+      address_post_code, address_recipient_name,
+      address_recipient_telno, is_default_address,
+      cust_id)
+    values (#{addressId,jdbcType=INTEGER}, #{addressProvince,jdbcType=VARCHAR}, #{addressCity,jdbcType=VARCHAR},
+      #{addressArea,jdbcType=VARCHAR}, #{addressStreet,jdbcType=VARCHAR}, #{addressDetail,jdbcType=VARCHAR},
+      #{addressPostCode,jdbcType=INTEGER}, #{addressRecipientName,jdbcType=VARCHAR},
+      #{addressRecipientTelno,jdbcType=BIGINT}, #{isDefaultAddress,jdbcType=INTEGER},
+      #{custId,jdbcType=INTEGER})
+  </insert>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from receive_address
     where address_id = #{addressId,jdbcType=INTEGER}
   </delete>
@@ -55,6 +69,7 @@
   </insert>
 
   <insert id="insertSelective" parameterType="com.aurora.model.entity.ReceiveAddress">
+  <insert id="save" parameterType="com.aurora.entity.ReceiveAddress">
     insert into receive_address
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="addressId != null">
