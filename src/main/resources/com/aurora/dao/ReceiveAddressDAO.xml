@@ -19,17 +19,29 @@
     address_post_code, address_recipient_name, address_recipient_telno, is_default_address, 
     cust_id
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from receive_address
     where address_id = #{addressId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+
+  <select id="queryAll" parameterType="java.lang.Integer" resultMap="BaseResultMap" >
+      select
+      <include refid="Base_Column_List" />
+      from receive_address
+      where cust_id = #{custId,jdbcType=INTEGER}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from receive_address
     where address_id = #{addressId,jdbcType=INTEGER}
   </delete>
+
   <insert id="insert" parameterType="com.aurora.model.entity.ReceiveAddress">
+
+
     insert into receive_address (address_id, address_province, address_city, 
       address_area, address_street, address_detail, 
       address_post_code, address_recipient_name, 
@@ -41,6 +53,7 @@
       #{addressRecipientTelno,jdbcType=BIGINT}, #{isDefaultAddress,jdbcType=INTEGER}, 
       #{custId,jdbcType=INTEGER})
   </insert>
+
   <insert id="insertSelective" parameterType="com.aurora.model.entity.ReceiveAddress">
     insert into receive_address
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -114,7 +127,9 @@
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.aurora.model.entity.ReceiveAddress">
+
     update receive_address
     <set>
       <if test="addressProvince != null">
@@ -150,7 +165,9 @@
     </set>
     where address_id = #{addressId,jdbcType=INTEGER}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="com.aurora.model.entity.ReceiveAddress">
+
     update receive_address
     set address_province = #{addressProvince,jdbcType=VARCHAR},
       address_city = #{addressCity,jdbcType=VARCHAR},
@@ -164,4 +181,12 @@
       cust_id = #{custId,jdbcType=INTEGER}
     where address_id = #{addressId,jdbcType=INTEGER}
   </update>
+
+  <update id="UpdateDefaultAddress"  parameterType="com.aurora.entity.ReceiveAddress">
+    update receive_address
+    set is_default_address =1
+    where address_id = #{addressId,jdbcType=INTEGER} AND cust_id=#{custId}
+  </update>
+
+
 </mapper>
