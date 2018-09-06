@@ -17,7 +17,7 @@ public interface MyBatisBaseDao<Model, PK extends Serializable> {
 
     int insertSelective(Model record);
 
-    List<ShoesSize> selectByPrimaryKey(PK id);
+    List<Model> selectByPrimaryKey(PK id);
 
     int updateByPrimaryKeySelective(Model record);
 
