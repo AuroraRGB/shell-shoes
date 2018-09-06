@@ -29,7 +29,7 @@
 
   <!--判断用户登录的手机号与密码是否正确-->
   <select id="checkTelnoAndPwd" resultMap="customer">
-    select cust_name, cust_pwd,
+    select cust_id,cust_name, cust_pwd,
            cust_age, cust_phone, cust_email,
            cust_create_time, cust_update_time, cust_profile
     from customer
@@ -38,7 +38,7 @@
 
   <!-- 判断用户登录的邮箱与密码是否正确-->
   <select id="checkEmailAndPwd" resultMap="customer">
-    select cust_name, cust_pwd,
+    select cust_id,cust_name, cust_pwd,
            cust_age, cust_phone, cust_email,
            cust_create_time, cust_update_time, cust_profile
     from customer

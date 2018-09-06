@@ -52,16 +52,16 @@ public class TestCustomer {
         SqlSession sqlSession = MyBatisUtil.getSession();
         CustomerDAO dao =  sqlSession.getMapper(CustomerDAO.class);
         Customer customer = new Customer();
-        customer.setCustId(1004);
-        customer.setCustPwd("aaaaaa");
-        customer.setCustName("test");
+        customer.setCustId(1005);
+        customer.setCustPwd("1");
+        customer.setCustName("aaa");
         customer.setCustAge(20);
-        customer.setCustPhone(178667822);
-        customer.setCustEmail("178test@gmail.com");
+        customer.setCustPhone(136111111L);
+        customer.setCustEmail("333@gmail.com");
         customer.setCustCreateTime(new Date());
         customer.setCustUpdateTime(new Date());
         int row = dao.register(customer);
-//        sqlSession.commit();
+        sqlSession.commit();
         System.out.println(row);
     }
 
@@ -74,7 +74,7 @@ public class TestCustomer {
         customer.setCustPwd("aaa111");
         customer.setCustName("test");
         customer.setCustAge(21);
-        customer.setCustPhone(178667899);
+        customer.setCustPhone(178667899L);
         customer.setCustEmail("111test@gmail.com");
         customer.setCustCreateTime(new Date());
         customer.setCustUpdateTime(new Date());

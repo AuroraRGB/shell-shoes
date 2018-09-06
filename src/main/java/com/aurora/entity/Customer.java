@@ -16,7 +16,7 @@ public class Customer implements Serializable {
 
     private Integer custAge;
 
-    private Integer custPhone;
+    private Long custPhone;
 
     private String custEmail;
 
@@ -60,11 +60,11 @@ public class Customer implements Serializable {
         this.custAge = custAge;
     }
 
-    public Integer getCustPhone() {
+    public Long getCustPhone() {
         return custPhone;
     }
 
-    public void setCustPhone(Integer custPhone) {
+    public void setCustPhone(Long custPhone) {
         this.custPhone = custPhone;
     }
 
