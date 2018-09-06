@@ -5,10 +5,11 @@
     <id column="cart_id" jdbcType="INTEGER" property="cartId" />
     <result column="cust_id" jdbcType="INTEGER" property="custId" />
     <result column="shoes_detail_id" jdbcType="INTEGER" property="shoesDetailId" />
-    <result column="quality" jdbcType="VARCHAR" property="quality" />
+    <result column="quality" jdbcType="INTEGER" property="quality" />
     <result column="add_time" jdbcType="DATE" property="addTime" />
     <result column="update_time" jdbcType="DATE" property="updateTime" />
   </resultMap>
+
   <sql id="Base_Column_List">
     cart_id, cust_id, shoes_detail_id, quality, add_time, update_time
   </sql>
@@ -18,16 +19,46 @@
     from cart
     where cart_id = #{cartId,jdbcType=INTEGER}
   </select>
+
+  <select id="queryAll" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from cart
+    where cart_id = #{cartId,jdbcType=INTEGER}
+  </select>
+
+  <resultMap id="BaseResultMap1" type="com.aurora.entity.ShoesDetail">
+    <id column="shoes_detail_id" jdbcType="INTEGER" property="shoesDetailId" />
+    <result column="shoes_id" jdbcType="INTEGER" property="shoesId" />
+    <result column="shoes_color_id" jdbcType="INTEGER" property="shoesColorId" />
+    <result column="shoes_size_id" jdbcType="INTEGER" property="shoesSizeId" />
+    <result column="shoes_inventory" jdbcType="INTEGER" property="shoesInventory" />
+    <result column="shoes_sale_count" jdbcType="INTEGER" property="shoesSaleCount" />
+  </resultMap>
+
+  <select id="queryAll1" parameterType="java.lang.Integer" resultMap="BaseResultMap1">
+    select
+    s.shoes_detail_id, s.shoes_id, s.shoes_color_id, s.shoes_size_id, s.shoes_inventory, s.shoes_sale_count
+    from cart c JOIN shoes_detail s
+    ON c.shoes_detail_id = s.shoes_detail_id
+    where c.cust_id=#{custId,jdbcType=INTEGER}
+  </select>
+
+  <delete id="delete"  parameterType="java.lang.Integer">
+    delete from cart
+    WHERE  shoes_detail_id=#{shoesDetailId} AND cust_id=#{custId}
+  </delete>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from cart
     where cart_id = #{cartId,jdbcType=INTEGER}
   </delete>
+
   <insert id="insert" parameterType="com.aurora.entity.Cart">
     insert into cart (cart_id, cust_id, shoes_detail_id, 
       quality, add_time, update_time
       )
     values (#{cartId,jdbcType=INTEGER}, #{custId,jdbcType=INTEGER}, #{shoesDetailId,jdbcType=INTEGER}, 
-      #{quality,jdbcType=VARCHAR}, #{addTime,jdbcType=DATE}, #{updateTime,jdbcType=DATE}
+      #{quality,jdbcType=INTEGER}, #{addTime,jdbcType=DATE}, #{updateTime,jdbcType=DATE}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.aurora.entity.Cart">
@@ -63,7 +94,7 @@
         #{shoesDetailId,jdbcType=INTEGER},
       </if>
       <if test="quality != null">
-        #{quality,jdbcType=VARCHAR},
+        #{quality,jdbcType=INTEGER},
       </if>
       <if test="addTime != null">
         #{addTime,jdbcType=DATE},
@@ -73,6 +104,13 @@
       </if>
     </trim>
   </insert>
+
+
+  <update id="updateCount" parameterType="com.aurora.entity.Cart">
+    update cart
+    set quality = #{count,jdbcType=INTEGER}
+    where  shoes_detail_id = #{shoesDetailId,jdbcType=INTEGER} AND cust_id = #{custId,jdbcType=INTEGER}
+  </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.aurora.entity.Cart">
     update cart
     <set>
@@ -83,7 +121,7 @@
         shoes_detail_id = #{shoesDetailId,jdbcType=INTEGER},
       </if>
       <if test="quality != null">
-        quality = #{quality,jdbcType=VARCHAR},
+        quality = #{quality,jdbcType=INTEGER},
       </if>
       <if test="addTime != null">
         add_time = #{addTime,jdbcType=DATE},
@@ -98,7 +136,7 @@
     update cart
     set cust_id = #{custId,jdbcType=INTEGER},
       shoes_detail_id = #{shoesDetailId,jdbcType=INTEGER},
-      quality = #{quality,jdbcType=VARCHAR},
+      quality = #{quality,jdbcType=INTEGER},
       add_time = #{addTime,jdbcType=DATE},
       update_time = #{updateTime,jdbcType=DATE}
     where cart_id = #{cartId,jdbcType=INTEGER}

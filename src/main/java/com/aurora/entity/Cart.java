@@ -14,13 +14,25 @@ public class Cart implements Serializable {
 
     private Integer shoesDetailId;
 
-    private String quality;
+    private Integer quality;
 
     private Date addTime;
 
     private Date updateTime;
 
     private static final long serialVersionUID = 1L;
+
+    public Cart() {
+    }
+
+    public Cart(Integer cartId, Integer custId, Integer shoesDetailId, Integer quality, Date addTime, Date updateTime) {
+        this.cartId = cartId;
+        this.custId = custId;
+        this.shoesDetailId = shoesDetailId;
+        this.quality = quality;
+        this.addTime = addTime;
+        this.updateTime = updateTime;
+    }
 
     public Integer getCartId() {
         return cartId;
@@ -46,11 +58,11 @@ public class Cart implements Serializable {
         this.shoesDetailId = shoesDetailId;
     }
 
-    public String getQuality() {
+    public Integer getQuality() {
         return quality;
     }
 
-    public void setQuality(String quality) {
+    public void setQuality(Integer quality) {
         this.quality = quality;
     }
 
