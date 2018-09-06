@@ -1,5 +1,7 @@
 package com.aurora.model.entity;
 
+import com.google.gson.annotations.Expose;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -8,18 +10,27 @@ import java.util.Date;
  * @author 
  */
 public class Myorder implements Serializable {
+
+    @Expose
     private Integer orderId;
 
+
+    @Expose
     private String orderNumber;
 
+    @Expose
     private Integer custId;
 
+    @Expose
     private Date orderTime;
 
+    @Expose
     private Float orderPrice;
 
+    @Expose
     private Integer orderAddressId;
 
+    @Expose
     private Integer orderStatus;
 
     private static final long serialVersionUID = 1L;
@@ -118,7 +129,6 @@ public class Myorder implements Serializable {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", orderId=").append(orderId);

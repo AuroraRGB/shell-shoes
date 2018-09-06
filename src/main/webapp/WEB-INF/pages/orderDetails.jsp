@@ -1,3 +1,8 @@
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+
+
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 
 <%--
   Created by IntelliJ IDEA.
@@ -12,7 +17,7 @@
 
     <title>用户的全部订单</title>
     <link rel="stylesheet" type="text/css" href="../../assets/css/basic.css">
-    <link rel="stylesheet" type="text/css" href="../../assets/css/oderDetails.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}assets/css/oderDetails.css">
 </head>
 <body>
 
@@ -54,23 +59,34 @@
     <form action="/orderDetailsServlet">
 
     <div id="middle">
-        <div id="middleSearch">
-            搜索框
-        </div>
+        <c:forEach items="${orderList}" var="s" >
+            <div id="oDiv">
+                <div id="topsSpan"  style="background-color:cadetblue;width: 100%;height: 15%;">
 
-        <script>
-            for (let n = 0; n<<%=session.getAttribute("listNumber")%>; n++) {
-                let oDiv  = document.createElement('div');
-                let oNDiv = document.createElement('div');
-                let oPDiv = document.createElement('div');
-                oDiv.id  = 'oDiv';
-                oNDiv.id = 'oNDiv';
-                oPDiv.id = 'oPDiv';
-                document.getElementById("middle").appendChild(oDiv);
-                document.getElementById("oDiv").appendChild(oNDiv);
-                document.getElementById('oDiv').appendChild(oPDiv);
-            }
-        </script>
+                    <div id="orderCreateTime" style="padding-top: 10px;display: inline">
+                        订单生成时间：${s.orderTime}
+                    </div>
+
+                    <div id="orderId" style="padding-top: 10px;display: inline">
+                        订单编号：${s.orderNumber}
+                    </div>
+
+                </div>
+
+                <div id="topBottom" style="background-color:lawngreen;width: 100%;height: 85%">
+                    <ul style="list-style: none">
+
+
+                        <span style="padding-top: 5px">订单价格：</span>
+                        <li style="margin-top: 10px">${s.orderPrice}</li>
+
+                        <span style="padding-top: 5px">订单状态：</span>
+                        <li style="margin-top: 10px">${s.orderStatus}</li>
+                    </ul>
+                </div>
+            </div>
+        </c:forEach>
+
     </div>
 
     </form>
