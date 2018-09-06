@@ -1,6 +1,6 @@
 package com.aurora.dao;
 
-import com.aurora.entity.Category;
+import com.aurora.model.entity.Category;
 
 /**
  * CategoryDAO继承基类

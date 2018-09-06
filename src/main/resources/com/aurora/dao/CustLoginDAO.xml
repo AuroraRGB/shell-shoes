@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aurora.dao.CustLoginDAO">
-  <resultMap id="BaseResultMap" type="com.aurora.entity.CustLogin">
+  <resultMap id="BaseResultMap" type="com.aurora.model.entity.CustLogin">
     <id column="login_id" jdbcType="INTEGER" property="loginId" />
     <result column="login_name" jdbcType="VARCHAR" property="loginName" />
     <result column="login_pwd" jdbcType="VARCHAR" property="loginPwd" />
@@ -23,7 +23,7 @@
     delete from cust_login
     where login_id = #{loginId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.aurora.entity.CustLogin">
+  <insert id="insert" parameterType="com.aurora.model.entity.CustLogin">
     insert into cust_login (login_id, login_name, login_pwd, 
       login_time, login_ip, login_status, 
       cust_id)
@@ -31,7 +31,7 @@
       #{loginTime,jdbcType=DATE}, #{loginIp,jdbcType=VARCHAR}, #{loginStatus,jdbcType=INTEGER}, 
       #{custId,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.aurora.entity.CustLogin">
+  <insert id="insertSelective" parameterType="com.aurora.model.entity.CustLogin">
     insert into cust_login
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="loginId != null">
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aurora.entity.CustLogin">
+  <update id="updateByPrimaryKeySelective" parameterType="com.aurora.model.entity.CustLogin">
     update cust_login
     <set>
       <if test="loginName != null">
@@ -104,7 +104,7 @@
     </set>
     where login_id = #{loginId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.aurora.entity.CustLogin">
+  <update id="updateByPrimaryKey" parameterType="com.aurora.model.entity.CustLogin">
     update cust_login
     set login_name = #{loginName,jdbcType=VARCHAR},
       login_pwd = #{loginPwd,jdbcType=VARCHAR},

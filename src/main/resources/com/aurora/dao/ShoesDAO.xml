@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aurora.dao.ShoesDAO">
-  <resultMap id="BaseResultMap" type="com.aurora.entity.Shoes">
+  <resultMap id="BaseResultMap" type="com.aurora.model.entity.Shoes">
     <id column="shoes_id" jdbcType="INTEGER" property="shoesId" />
     <result column="shoes_number" jdbcType="INTEGER" property="shoesNumber" />
     <result column="shoes_name" jdbcType="VARCHAR" property="shoesName" />
@@ -30,7 +30,7 @@
     delete from shoes
     where shoes_id = #{shoesId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.aurora.entity.Shoes">
+  <insert id="insert" parameterType="com.aurora.model.entity.Shoes">
     insert into shoes (shoes_id, shoes_number, shoes_name, 
       shoes_price_sale, shoes_discount, shoes_desc, 
       shoes_onsale_time, shoes_offsale_time, shoes_sale_count, 
@@ -42,7 +42,7 @@
       #{shoesGender,jdbcType=TINYINT}, #{shoesStatus,jdbcType=TINYINT}, #{categoryId,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.aurora.entity.Shoes">
+  <insert id="insertSelective" parameterType="com.aurora.model.entity.Shoes">
     insert into shoes
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="shoesId != null">
@@ -121,7 +121,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aurora.entity.Shoes">
+  <update id="updateByPrimaryKeySelective" parameterType="com.aurora.model.entity.Shoes">
     update shoes
     <set>
       <if test="shoesNumber != null">
@@ -160,7 +160,7 @@
     </set>
     where shoes_id = #{shoesId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.aurora.entity.Shoes">
+  <update id="updateByPrimaryKey" parameterType="com.aurora.model.entity.Shoes">
     update shoes
     set shoes_number = #{shoesNumber,jdbcType=INTEGER},
       shoes_name = #{shoesName,jdbcType=VARCHAR},

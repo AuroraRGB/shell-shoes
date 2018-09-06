@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aurora.dao.ShoesImgDAO">
-  <resultMap id="BaseResultMap" type="com.aurora.entity.ShoesImg">
+  <resultMap id="BaseResultMap" type="com.aurora.model.entity.ShoesImg">
     <id column="img_id" jdbcType="INTEGER" property="imgId" />
     <result column="shoes_id" jdbcType="INTEGER" property="shoesId" />
     <result column="img_path" jdbcType="VARCHAR" property="imgPath" />
@@ -20,13 +20,13 @@
     delete from shoes_img
     where img_id = #{imgId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.aurora.entity.ShoesImg">
+  <insert id="insert" parameterType="com.aurora.model.entity.ShoesImg">
     insert into shoes_img (img_id, shoes_id, img_path, 
       sort_no)
     values (#{imgId,jdbcType=INTEGER}, #{shoesId,jdbcType=INTEGER}, #{imgPath,jdbcType=VARCHAR}, 
       #{sortNo,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.aurora.entity.ShoesImg">
+  <insert id="insertSelective" parameterType="com.aurora.model.entity.ShoesImg">
     insert into shoes_img
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="imgId != null">
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aurora.entity.ShoesImg">
+  <update id="updateByPrimaryKeySelective" parameterType="com.aurora.model.entity.ShoesImg">
     update shoes_img
     <set>
       <if test="shoesId != null">
@@ -72,7 +72,7 @@
     </set>
     where img_id = #{imgId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.aurora.entity.ShoesImg">
+  <update id="updateByPrimaryKey" parameterType="com.aurora.model.entity.ShoesImg">
     update shoes_img
     set shoes_id = #{shoesId,jdbcType=INTEGER},
       img_path = #{imgPath,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aurora.dao.ShoesDetailDAO">
-  <resultMap id="BaseResultMap" type="com.aurora.entity.ShoesDetail">
+  <resultMap id="BaseResultMap" type="com.aurora.model.entity.ShoesDetail">
     <id column="shoes_detail_id" jdbcType="INTEGER" property="shoesDetailId" />
     <result column="shoes_id" jdbcType="INTEGER" property="shoesId" />
     <result column="shoes_color_id" jdbcType="INTEGER" property="shoesColorId" />
@@ -24,7 +24,7 @@
     delete from shoes_detail
     where shoes_detail_id = #{shoesDetailId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.aurora.entity.ShoesDetail">
+  <insert id="insert" parameterType="com.aurora.model.entity.ShoesDetail">
     insert into shoes_detail (shoes_detail_id, shoes_id, shoes_color_id, 
       shoes_size_id, shoes_inventory, shoes_sale_count, 
       `status`)
@@ -32,7 +32,7 @@
       #{shoesSizeId,jdbcType=INTEGER}, #{shoesInventory,jdbcType=INTEGER}, #{shoesSaleCount,jdbcType=INTEGER}, 
       #{status,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.aurora.entity.ShoesDetail">
+  <insert id="insertSelective" parameterType="com.aurora.model.entity.ShoesDetail">
     insert into shoes_detail
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="shoesDetailId != null">
@@ -81,7 +81,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aurora.entity.ShoesDetail">
+  <update id="updateByPrimaryKeySelective" parameterType="com.aurora.model.entity.ShoesDetail">
     update shoes_detail
     <set>
       <if test="shoesId != null">
@@ -105,7 +105,7 @@
     </set>
     where shoes_detail_id = #{shoesDetailId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.aurora.entity.ShoesDetail">
+  <update id="updateByPrimaryKey" parameterType="com.aurora.model.entity.ShoesDetail">
     update shoes_detail
     set shoes_id = #{shoesId,jdbcType=INTEGER},
       shoes_color_id = #{shoesColorId,jdbcType=INTEGER},

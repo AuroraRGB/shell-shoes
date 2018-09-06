@@ -1,6 +1,6 @@
 package com.aurora.dao;
 
-import com.aurora.entity.Cart;
+import com.aurora.model.entity.Cart;
 
 /**
  * CartDAO继承基类

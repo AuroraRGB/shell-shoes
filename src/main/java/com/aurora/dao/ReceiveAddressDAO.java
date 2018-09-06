@@ -1,6 +1,6 @@
 package com.aurora.dao;
 
-import com.aurora.entity.ReceiveAddress;
+import com.aurora.model.entity.ReceiveAddress;
 
 /**
  * ReceiveAddressDAO继承基类
