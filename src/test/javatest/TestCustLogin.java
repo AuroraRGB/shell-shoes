@@ -1,5 +1,3 @@
-package java;
-
 import com.aurora.dao.CustLoginDAO;
 
 import com.aurora.model.entity.CustLogin;

@@ -34,6 +34,8 @@ public class Cart implements Serializable {
         this.updateTime = updateTime;
     }
 
+
+
     public Integer getCartId() {
         return cartId;
     }

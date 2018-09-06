@@ -16,7 +16,7 @@
     <result column="category_id" jdbcType="INTEGER" property="categoryId" />
   </resultMap>
 
-  <resultMap id="ShoesDetail" type="com.aurora.entity.ShoesDetail">
+  <resultMap id="ShoesDetail" type="com.aurora.model.entity.ShoesDetail">
     <id column="shoes_detail_id" jdbcType="INTEGER" property="shoesDetailId" />
     <result column="shoes_id" jdbcType="INTEGER" property="shoesId" />
     <result column="shoes_color_id" jdbcType="INTEGER" property="shoesColorId" />

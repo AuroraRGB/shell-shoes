@@ -7,8 +7,6 @@ import com.aurora.service.LoginService;
 import com.aurora.util.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;
 
-import javax.servlet.http.Cookie;
-
 public class LoginServiceImpl implements LoginService {
 
     @Override

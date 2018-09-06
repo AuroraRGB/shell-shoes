@@ -11,7 +11,7 @@
     <result column="cust_id" jdbcType="INTEGER" property="custId" />
   </resultMap>
 
-  <resultMap id="customer" type="com.aurora.entity.Customer">
+  <resultMap id="customer" type="com.aurora.model.entity.Customer">
     <id column="cust_id" jdbcType="INTEGER" property="custId" />
     <result column="cust_name" jdbcType="VARCHAR" property="custName" />
     <result column="cust_pwd" jdbcType="VARCHAR" property="custPwd" />
@@ -46,7 +46,7 @@
   </select>
 
 <!--添加登录记录-->
-  <insert id="save" parameterType="com.aurora.entity.CustLogin">
+  <insert id="save" parameterType="com.aurora.model.entity.CustLogin">
     insert into cust_login (login_id, login_name, login_pwd,
                             login_time, login_ip, login_status,
                             cust_id)

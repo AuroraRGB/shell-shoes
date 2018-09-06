@@ -28,7 +28,7 @@
             </transactionManager>
             <!--未配置连接池-->
             <dataSource type="UNPOOLED">
-                <!--数据与阿配置-->
+                <!--数据配置-->
                 <property name="driver" value="${driver}"/>
                 <property name="url" value="${url}"/>
                 <property name="username" value="${user}"/>
