@@ -1,5 +1,7 @@
+package java;
+
 import com.aurora.dao.ReceiveAddressDAO;
-import com.aurora.entity.ReceiveAddress;
+import com.aurora.model.entity.ReceiveAddress;
 import com.aurora.util.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;

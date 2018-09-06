@@ -2,8 +2,7 @@ package com.aurora.dao;
 
 
 import com.aurora.model.entity.CustLogin;
-
-import com.aurora.entity.Customer;
+import com.aurora.model.entity.Customer;
 import org.apache.ibatis.annotations.Param;
 
 /**

@@ -1,7 +1,8 @@
 package com.aurora.service.impl;
 
 import com.aurora.dao.CustLoginDAO;
-import com.aurora.entity.Customer;
+
+import com.aurora.model.entity.Customer;
 import com.aurora.service.LoginService;
 import com.aurora.util.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;

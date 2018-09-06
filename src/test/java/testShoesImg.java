@@ -1,6 +1,7 @@
-package com.aurora.dao;
+package java;
 
-import com.aurora.entity.ShoesImg;
+import com.aurora.dao.ShoesImgDAO;
+import com.aurora.model.entity.ShoesImg;
 import com.aurora.util.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;

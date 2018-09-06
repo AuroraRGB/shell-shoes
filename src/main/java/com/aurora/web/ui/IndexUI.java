@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "IndexUI", urlPatterns = "/")
 public class IndexUI extends HttpServlet{
 
     @Override

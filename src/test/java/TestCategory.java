@@ -1,5 +1,7 @@
+package java;
+
 import com.aurora.dao.CategoryDAO;
-import com.aurora.entity.Category;
+import com.aurora.model.entity.Category;
 import com.aurora.util.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;

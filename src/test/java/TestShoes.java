@@ -1,6 +1,9 @@
+package java;
+
 import com.aurora.dao.ShoesDAO;
-import com.aurora.entity.Shoes;
-import com.aurora.entity.ShoesDetail;
+
+import com.aurora.model.entity.Shoes;
+import com.aurora.model.entity.ShoesDetail;
 import com.aurora.util.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;

@@ -1,7 +1,9 @@
+package java;
 
 import com.aurora.dao.CustLoginDAO;
-import com.aurora.entity.CustLogin;
-import com.aurora.entity.Customer;
+
+import com.aurora.model.entity.CustLogin;
+import com.aurora.model.entity.Customer;
 import com.aurora.util.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;

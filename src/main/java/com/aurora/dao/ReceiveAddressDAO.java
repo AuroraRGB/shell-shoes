@@ -52,10 +52,5 @@ public interface ReceiveAddressDAO extends MyBatisBaseDao<ReceiveAddress, Intege
      */
     int UpdateDefaultAddress(@Param("addressId") Integer addressId, @Param("custId") Integer custId);
 
-    /**
-     @param newAddress 新增的收件地址对象
-     @return 返回受影响行数
-     */
-    int save(ReceiveAddress newAddress);
 
 }

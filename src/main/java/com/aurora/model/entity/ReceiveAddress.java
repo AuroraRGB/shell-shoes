@@ -64,6 +64,9 @@ public class ReceiveAddress implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    public ReceiveAddress() {
+    }
+
     public ReceiveAddress(Integer addressId, String addressProvince, String addressCity, String addressArea, String addressStreet, String addressDetail, Integer addressPostCode, String addressRecipientName, Long addressRecipientTelno, Integer isDefaultAddress, Integer custId) {
         this.addressId = addressId;
         this.addressProvince = addressProvince;

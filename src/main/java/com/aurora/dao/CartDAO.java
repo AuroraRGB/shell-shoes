@@ -1,8 +1,7 @@
 package com.aurora.dao;
 
 import com.aurora.model.entity.Cart;
-
-import com.aurora.entity.ShoesDetail;
+import com.aurora.model.entity.ShoesDetail;
 import org.apache.ibatis.annotations.Param;
 
 

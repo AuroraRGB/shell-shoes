@@ -1,7 +1,5 @@
 package com.aurora.dao;
 
-import com.aurora.entity.ShoesSize;
-
 import java.io.Serializable;
 import java.util.List;
 
