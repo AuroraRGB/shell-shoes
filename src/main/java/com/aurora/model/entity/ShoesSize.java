@@ -11,7 +11,7 @@ public class ShoesSize implements Serializable {
 
     private Float shoesSize;
 
-    private Boolean shoesState;
+    private Integer shoesState;
 
     private static final long serialVersionUID = 1L;
 
@@ -31,11 +31,21 @@ public class ShoesSize implements Serializable {
         this.shoesSize = shoesSize;
     }
 
-    public Boolean getShoesState() {
+    public Integer getShoesState() {
         return shoesState;
     }
 
-    public void setShoesState(Boolean shoesState) {
+    public void setShoesState(Integer shoesState) {
+        this.shoesState = shoesState;
+    }
+
+    public ShoesSize(){
+
+    }
+
+    public ShoesSize(Integer shoesSizeId, Float shoesSize, Integer shoesState) {
+        this.shoesSizeId = shoesSizeId;
+        this.shoesSize = shoesSize;
         this.shoesState = shoesState;
     }
 

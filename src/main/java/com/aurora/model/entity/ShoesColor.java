@@ -11,7 +11,7 @@ public class ShoesColor implements Serializable {
 
     private String shoesColorName;
 
-    private Boolean shoesColorStatus;
+    private Integer shoesColorStatus;
 
     private static final long serialVersionUID = 1L;
 
@@ -31,11 +31,21 @@ public class ShoesColor implements Serializable {
         this.shoesColorName = shoesColorName;
     }
 
-    public Boolean getShoesColorStatus() {
+    public Integer getShoesColorStatus() {
         return shoesColorStatus;
     }
 
-    public void setShoesColorStatus(Boolean shoesColorStatus) {
+    public void setShoesColorStatus(Integer shoesColorStatus) {
+        this.shoesColorStatus = shoesColorStatus;
+    }
+
+    public ShoesColor() {
+
+    }
+
+    public ShoesColor(Integer shoesColorId, String shoesColorName, Integer shoesColorStatus) {
+        this.shoesColorId = shoesColorId;
+        this.shoesColorName = shoesColorName;
         this.shoesColorStatus = shoesColorStatus;
     }
 

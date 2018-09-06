@@ -10,11 +10,11 @@
   <sql id="Base_Column_List">
     img_id, shoes_id, img_path, sort_no
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="queryAllImgByShoesId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from shoes_img
-    where img_id = #{imgId,jdbcType=INTEGER}
+    where shoes_id = #{shoesId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from shoes_img
