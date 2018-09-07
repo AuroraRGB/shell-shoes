@@ -1,12 +1,17 @@
 #oDiv{
 
-    width: 70%;
+    width: 50%;
     height: 300px;
-    margin: 30px auto;
+    margin: 0 auto;
+    color: white;
     background-color: black;
 }
 
 #middle{
     min-height: 600px;
     width: 100%;
+}
+
+#orderGetNumber{
+    margin-top: 20px
 }

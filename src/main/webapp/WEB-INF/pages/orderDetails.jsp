@@ -57,47 +57,45 @@
     </div>
 
     <form action="/orderDetailsServlet">
-
     <div id="middle">
         <c:forEach items="${orderMap}" var="s" >
+            <div id="orderGetNumber">
+                <c:forEach items="${s.value}" var="x" >
 
-            <div style="background-color: lawngreen">
-            <c:forEach items="${s.value}" var="x" >
-                <div id="oDiv">
-                    ${x.orderTime}
-                </div>
+                    <div id="oDiv">
 
-            </c:forEach>
+                        <c:if test="${x.orderStatus == 0}">
+                                <ul>
+                                    <li>订单已完成</li>
+                                    <li>${x.orderTime}</li>
+                                    <li>${x.orderPrice}</li>
+                                    <li>${x.orderNumber}</li>
+                                    <li>${x.orderShoesColor}</li>
+                                    <li>${x.orderShoesSize}</li>
+                                    <li>${x.shoesName}</li>
+                                </ul>
+
+                        </c:if>
+
+                        <c:if test="${x.orderStatus == 1}">
+                            <ul>
+                                <li>订单未完成</li>
+                                <li>${x.orderStatus}</li>
+                                <li>${x.orderTime}</li>
+                                <li>${x.orderPrice}</li>
+                                <li>${x.orderNumber}</li>
+                                <li>${x.orderShoesColor}</li>
+                                <li>${x.orderShoesSize}</li>
+                                <li>${x.shoesName}</li>
+                            </ul>
+                        </c:if>
+
+
+                    </div>
+                </c:forEach>
             </div>
-            <%--<div id="oDiv">--%>
-                <%--<div id="topsSpan"  style="background-color:cadetblue;width: 100%;height: 15%;">--%>
-
-                    <%--<div id="orderCreateTime" style="padding-top: 10px;display: inline">--%>
-                        <%--订单生成时间：${orderMap.value}--%>
-                    <%--</div>--%>
-
-                    <%--<div id="orderId" style="padding-top: 10px;display: inline">--%>
-                        <%--订单编号：${s.orderNumber}--%>
-                    <%--</div>--%>
-
-                <%--</div>--%>
-
-                <%--<div id="topBottom" style="background-color:lawngreen;width: 100%;height: 85%">--%>
-                    <%--<ul style="list-style: none">--%>
-
-
-                        <%--<span style="padding-top: 5px">订单价格：</span>--%>
-                        <%--<li style="margin-top: 10px">${s.orderPrice}</li>--%>
-
-                        <%--<span style="padding-top: 5px">订单状态：</span>--%>
-                        <%--<li style="margin-top: 10px">${s.orderStatus}</li>--%>
-                    <%--</ul>--%>
-                <%--</div>--%>
-            <%--</div>--%>
         </c:forEach>
-
     </div>
-
     </form>
 
     <div id="orderBottom">

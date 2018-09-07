@@ -7,10 +7,12 @@ import lombok.*;
 import java.util.Date;
 import java.util.Objects;
 
+
 @AllArgsConstructor
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 
 public class OrderDetailsDTO {
     private Integer custId;
@@ -19,6 +21,9 @@ public class OrderDetailsDTO {
     private Integer orderStatus;
     private Date    orderTime;
     private String  orderNumber;
+    private String  orderShoesColor;
+    private String  orderShoesSize;
+    private String  shoesName;
 
     @Override
     public boolean equals(Object o) {
@@ -30,24 +35,14 @@ public class OrderDetailsDTO {
                 Objects.equals(orderPrice, that.orderPrice) &&
                 Objects.equals(orderStatus, that.orderStatus) &&
                 Objects.equals(orderTime, that.orderTime) &&
-                Objects.equals(orderNumber, that.orderNumber);
+                Objects.equals(orderNumber, that.orderNumber) &&
+                Objects.equals(orderShoesColor, that.orderShoesColor) &&
+                Objects.equals(orderShoesSize, that.orderShoesSize) &&
+                Objects.equals(shoesName, that.shoesName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(custId, orderId, orderPrice, orderStatus, orderTime, orderNumber);
-    }
-
-    @Override
-    public String toString() {
-        final StringBuffer sb = new StringBuffer("OrderDetailsDTO{");
-        sb.append("custId=").append(custId);
-        sb.append(", orderId=").append(orderId);
-        sb.append(", orderPrice=").append(orderPrice);
-        sb.append(", orderStatus=").append(orderStatus);
-        sb.append(", orderTime=").append(orderTime);
-        sb.append(", orderNumber='").append(orderNumber).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return Objects.hash(custId, orderId, orderPrice, orderStatus, orderTime, orderNumber, orderShoesColor, orderShoesSize, shoesName);
     }
 }
