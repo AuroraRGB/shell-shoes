@@ -98,9 +98,9 @@
 </div>
 
 <div style="height: 600px">
-    <a href="${pageContext.request.contextPath}/address?type=0">添加地址</a>
-    <a href="/address?type=1">修改地址</a>
-    <a href="">查看所有地址</a>
+    <a href="${pageContext.request.contextPath}/address?type=1">添加地址</a>
+    <a href="/address?type=2">修改地址</a>
+    <a href="/AddressServlet?type=0">查看所有地址</a>
     <%--<a href="/login">登录页面</a>--%>
 </div>
 
