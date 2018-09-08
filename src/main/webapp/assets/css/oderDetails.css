@@ -1,7 +1,7 @@
 #oDiv{
 
-    width: 50%;
-    height: 300px;
+    width: 70%;
+    height: 200px;
     margin: 0 auto;
     color: white;
     background-color: black;
@@ -13,5 +13,5 @@
 }
 
 #orderGetNumber{
-    margin-top: 20px
+    margin-top: 40px
 }

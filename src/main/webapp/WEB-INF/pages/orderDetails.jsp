@@ -59,38 +59,31 @@
     <form action="/orderDetailsServlet">
     <div id="middle">
         <c:forEach items="${orderMap}" var="s" >
+
+            <li>${s.key}</li>
             <div id="orderGetNumber">
                 <c:forEach items="${s.value}" var="x" >
-
                     <div id="oDiv">
-
                         <c:if test="${x.orderStatus == 0}">
                                 <ul>
                                     <li>订单已完成</li>
-                                    <li>${x.orderTime}</li>
                                     <li>${x.orderPrice}</li>
-                                    <li>${x.orderNumber}</li>
+                                    <li>${x.orderTime}</li>
                                     <li>${x.orderShoesColor}</li>
                                     <li>${x.orderShoesSize}</li>
                                     <li>${x.shoesName}</li>
                                 </ul>
-
                         </c:if>
-
                         <c:if test="${x.orderStatus == 1}">
                             <ul>
                                 <li>订单未完成</li>
-                                <li>${x.orderStatus}</li>
-                                <li>${x.orderTime}</li>
                                 <li>${x.orderPrice}</li>
-                                <li>${x.orderNumber}</li>
+                                <li>${x.orderTime}</li>
                                 <li>${x.orderShoesColor}</li>
                                 <li>${x.orderShoesSize}</li>
                                 <li>${x.shoesName}</li>
                             </ul>
                         </c:if>
-
-
                     </div>
                 </c:forEach>
             </div>

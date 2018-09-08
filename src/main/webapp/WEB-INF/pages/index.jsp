@@ -5,10 +5,10 @@
   Time: 20:35
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <html>
 <head>
-    <title>Title</title>
+    <title>跳转界面</title>
 </head>
 <body>
     <h1>hello java</h1>
@@ -30,6 +30,9 @@
         <button type="submit">提交按钮</button>
     </form>
 
+
+    <a href="/login"><h1>登录界面</h1></a>
+    <a href="/registered"><h1>注册</h1></a>
     <a href="/orderDetails"><h1>订单详情界面</h1></a>
     <a href="/orderCreate"><h1>生成订单界面</h1></a>
     <a href="/orderDetail"><h1>单个订单查看界面</h1></a>
