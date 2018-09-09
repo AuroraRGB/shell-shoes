@@ -6,6 +6,26 @@
          version="4.0">
 
 
+    <filter>
+        <filter-name>IllegalCharacterFilter</filter-name>
+        <filter-class>com.aurora.web.filter.IllegalCharacterFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>IllegalCharacterFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <filter>
+        <filter-name>KeywordBlockingFilter</filter-name>
+        <filter-class>com.aurora.web.filter.KeywordBlockingFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>KeywordBlockingFilter</filter-name>
+        <url-pattern>/finalFilterComment</url-pattern>
+    </filter-mapping>
 
     <servlet-mapping>
         <servlet-name>default</servlet-name>

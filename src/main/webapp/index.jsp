@@ -9,6 +9,11 @@
 <html>
 <head>
     <title>跳转界面</title>
+
+    <%
+        String path = request.getContextPath();
+        String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    %>
 </head>
 <body>
     <h1>hello java</h1>
@@ -32,6 +37,7 @@
 
 
     <a href="/login"><h1>登录界面</h1></a>
+    <a href="/comment"><h1>评论</h1></a>
     <a href="/registered"><h1>注册</h1></a>
     <a href="/orderDetails"><h1>订单详情界面</h1></a>
     <a href="/orderCreate"><h1>生成订单界面</h1></a>

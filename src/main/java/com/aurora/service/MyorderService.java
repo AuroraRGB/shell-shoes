@@ -15,26 +15,33 @@ public class MyorderService {
 
     SqlSession session= MyBatisUtil.getSession();
     MyorderDAO myorderDAO=session.getMapper(MyorderDAO.class);
-
-
-    public List<OrderDetailsDTO> queryByCustIdList(Integer custId){
-        List<OrderDetailsDTO> myorderList=myorderDAO.queryByCustId(custId);
-        return myorderList;
-    }
-
     public  Map<String,List<OrderDetailsDTO>> queryByCustIdMap(Integer custId){
-
         Map<String, List<OrderDetailsDTO>> map=new HashMap<>();
         List<OrderDetailsDTO> myOrderList=myorderDAO.queryByCustId(custId);
-        for (OrderDetailsDTO myOrder:myOrderList){
-            List<OrderDetailsDTO> list=new ArrayList<>();
-            list.add(myOrder);
-            if (null!=map.get(myOrder.getOrderNumber())){
-                list.addAll(map.get(myOrder.getOrderNumber()));
+        for (int i=0;i<myOrderList.size();i++){
+            List<OrderDetailsDTO> list    = new ArrayList<>();
+            list.add(myOrderList.get(i));
+            if (null!=map.get(myOrderList.get(i).getOrderNumber())){
+                list.addAll(map.get(myOrderList.get(i).getOrderNumber()));
             }
-            map.put(myOrder.getOrderNumber(),list);
+            map.put(myOrderList.get(i).getOrderNumber(),list);
         }
-        System.out.println(map);
+
+        for (List<OrderDetailsDTO> value : map.values()) {
+            Double  countPrice = 0.0;
+            Integer count      = 0;
+            List<String> list  = new ArrayList<>();
+            for (OrderDetailsDTO orderDetailList : value){
+                countPrice+=orderDetailList.getOrderPrice();
+                count+=orderDetailList.getOrderId();
+            }
+            list.add("订单状态    ："+value.get(0).getOrderStatus().toString());
+            list.add("订单创建时间 ："+value.get(0).getOrderTime().toString());
+            list.add("订单个数    ："+count.toString());
+            list.add("订单总价    ："+countPrice.toString());
+            list.add("用户ID     : "+value.get(0).getOrderId().toString());
+            value.get(0).setOrderDetailList(list);
+        }
         return map;
     }
 }

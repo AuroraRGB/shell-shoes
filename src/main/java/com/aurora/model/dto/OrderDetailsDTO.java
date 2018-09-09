@@ -5,6 +5,7 @@ package com.aurora.model.dto;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -15,15 +16,16 @@ import java.util.Objects;
 @ToString
 
 public class OrderDetailsDTO {
-    private Integer custId;
-    private Integer orderId;
-    private Float   orderPrice;
-    private Integer orderStatus;
-    private Date    orderTime;
-    private String  orderNumber;
-    private String  orderShoesColor;
-    private String  orderShoesSize;
-    private String  shoesName;
+    private Integer      custId;
+    private Integer      orderId;
+    private Float        orderPrice;
+    private Integer      orderStatus;
+    private Date         orderTime;
+    private String       orderNumber;
+    private String       orderShoesColor;
+    private String       orderShoesSize;
+    private String       shoesName;
+    private List<String> orderDetailList;
 
     @Override
     public boolean equals(Object o) {
@@ -38,11 +40,14 @@ public class OrderDetailsDTO {
                 Objects.equals(orderNumber, that.orderNumber) &&
                 Objects.equals(orderShoesColor, that.orderShoesColor) &&
                 Objects.equals(orderShoesSize, that.orderShoesSize) &&
-                Objects.equals(shoesName, that.shoesName);
+                Objects.equals(shoesName, that.shoesName) &&
+                Objects.equals(orderDetailList, that.orderDetailList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(custId, orderId, orderPrice, orderStatus, orderTime, orderNumber, orderShoesColor, orderShoesSize, shoesName);
+        return Objects.hash(custId, orderId, orderPrice, orderStatus, orderTime, orderNumber, orderShoesColor, orderShoesSize, shoesName, orderDetailList);
     }
+
+
 }
