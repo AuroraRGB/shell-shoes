@@ -13,7 +13,7 @@
     <result column="cust_profile" jdbcType="VARCHAR" property="custProfile" />
   </resultMap>
   <sql id="Base_Column_List">
-    cust_id, cust_name, cust_pwd, cust_age, cust_phone, cust_email, cust_create_time, 
+    cust_id, cust_name, cust_pwd, cust_age, cust_email, cust_create_time,
     cust_update_time, cust_profile
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -139,10 +139,15 @@
       cust_profile = #{custProfile,jdbcType=VARCHAR}
     where cust_id = #{custId,jdbcType=INTEGER}
   </update>
-
   <select id="getByName" resultType="com.aurora.model.entity.Customer">
     select
     <include refid="Base_Column_List" />
+    from customer
+    where cust_name = #{customerName}
+  </select>
+  <select id="getCustomerIdByName" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select
+    cust_id
     from customer
     where cust_name = #{customerName}
   </select>

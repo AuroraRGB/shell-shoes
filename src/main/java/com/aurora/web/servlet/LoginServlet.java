@@ -23,11 +23,10 @@ public class LoginServlet extends HttpServlet {
         String userName     = request.getParameter("userName");
         String userPassword =request.getParameter("userPassword");
         boolean flag=customerService.login(userName,userPassword);
-
-
         if (flag){
             HttpSession session=request.getSession();
             session.setAttribute("userName",userName);
+            session.setAttribute("userPassword",userPassword);
             response.sendRedirect("/orderDetailsServlet");
         }else {
             request.getRequestDispatcher("WEB-INF/pages/orderDetails.jsp").forward(request,response);

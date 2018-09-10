@@ -22,4 +22,10 @@ public class CustomerService {
         }
         return false;
     }
+
+    public Integer queryCustomerIDByName(String userName){
+        Integer customerId=customerDAO.getCustomerIdByName(userName);
+        System.out.println(customerId);
+        return customerId;
+    }
 }

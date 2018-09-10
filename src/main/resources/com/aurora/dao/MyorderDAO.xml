@@ -162,12 +162,12 @@ where my.order_number=#{orderNumber} and my.cust_id=#{custId}
        o.order_shoes_color,o.order_shoes_size,
        my.order_time, my.order_number,
        s2.shoes_name
-from myorder my join order_detail o
-         on my.order_id = o.order_id
-join shoes_detail detail
-         on o.shoes_detail_id = detail.shoes_detail_id
-join shoes s2
-         on detail.shoes_id = s2.shoes_id
-where my.cust_id=1002;
+    from myorder my join order_detail o
+             on my.order_id = o.order_id
+    join shoes_detail detail
+             on o.shoes_detail_id = detail.shoes_detail_id
+    join shoes s2
+             on detail.shoes_id = s2.shoes_id
+    where my.cust_id=#{custId};
   </select>
 </mapper>

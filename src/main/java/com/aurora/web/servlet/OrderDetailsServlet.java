@@ -1,5 +1,6 @@
 package com.aurora.web.servlet;
 import com.aurora.model.dto.OrderDetailsDTO;
+import com.aurora.service.CustomerService;
 import com.aurora.util.Json2StringUtil;
 
 
@@ -23,12 +24,15 @@ import java.util.Map;
 
     public class OrderDetailsServlet extends HttpServlet {
 
-    private MyorderService myorderService=new MyorderService();
+    private CustomerService customerService = new CustomerService();
+    private MyorderService myorderService   = new MyorderService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         HttpSession session=request.getSession();
-        Map<String,List<OrderDetailsDTO>> map             = myorderService.queryByCustIdMap(1002);
+        String customerName= (String) session.getAttribute("userName");
+        Integer customerId=customerService.queryCustomerIDByName(customerName);
+        System.out.println("servlet层"+customerId);
+        Map<String,List<OrderDetailsDTO>> map = myorderService.queryByCustIdMap(customerId);
         session.setAttribute("orderMap",map);
         request.getRequestDispatcher("WEB-INF/pages/orderDetail/orderDetails.jsp").forward(request,response);
     }
