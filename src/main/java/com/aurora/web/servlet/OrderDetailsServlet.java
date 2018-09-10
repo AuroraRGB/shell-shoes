@@ -30,6 +30,6 @@ import java.util.Map;
         HttpSession session=request.getSession();
         Map<String,List<OrderDetailsDTO>> map             = myorderService.queryByCustIdMap(1002);
         session.setAttribute("orderMap",map);
-        request.getRequestDispatcher("WEB-INF/pages/orderDetails.jsp").forward(request,response);
+        request.getRequestDispatcher("WEB-INF/pages/orderDetail/orderDetails.jsp").forward(request,response);
     }
 }

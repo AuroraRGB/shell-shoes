@@ -11,7 +11,6 @@
     <title>注册界面</title>
 </head>
 <body>
-    <%--跳到生成token的servlet--%>
     <form action="${pageContext.request.contextPath}/Registered" method="post">
         <input type="hidden" name="token" value="<%=session.getAttribute("token")%>">
         用户名    ：<input type="text" name="userName">
