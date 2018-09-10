@@ -13,8 +13,8 @@
 
 <head>
     <title>用户的全部订单</title>
-    <link rel="stylesheet" type="text/css" href="../../assets/css/basic.css">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}assets/css/oderDetails.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/basic/basic.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/oderDetails.css">
 </head>
 
 <body>

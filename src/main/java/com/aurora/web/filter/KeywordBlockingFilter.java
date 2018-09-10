@@ -1,14 +1,14 @@
 package com.aurora.web.filter;
 
-import org.apache.taglibs.standard.lang.jstl.test.PageContextImpl;
-
 import javax.servlet.*;
-
+import javax.servlet.annotation.WebFilter;
 
 import java.io.IOException;
 
 
 
+
+@WebFilter(filterName = "KeywordBlockingFilter" ,urlPatterns = "/finalFilterComment")
 public class KeywordBlockingFilter implements Filter {
 
     @Override
@@ -37,7 +37,6 @@ public class KeywordBlockingFilter implements Filter {
 
     }
 
-
     @Override
-    public void destroy() {}
+    public void destroy(){}
 }

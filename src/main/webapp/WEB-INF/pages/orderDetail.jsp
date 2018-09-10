@@ -5,13 +5,13 @@
   Time: 08:38
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <html>
 <head>
     <title>查看当前生成的订单</title>
 
-    <link rel="stylesheet" type="text/css" href="../../assets/css/basic.css">
-    <link rel="stylesheet" type="text/css" href="../../assets/css/oderDetails.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/basic/basic.css/css/basic.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/order/oderDetails.css/css/oderDetails.css">
 </head>
 <body>
 
