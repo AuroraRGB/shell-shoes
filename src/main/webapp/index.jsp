@@ -15,11 +15,10 @@
 
 <jsp:include page="WEB-INF/pages/basic/top.jsp"></jsp:include>
 
-    <a href="/login"><h1>登录界面</h1></a>
-    <a href="/comment"><h1>评论</h1></a>
-    <a href="/registered"><h1>注册</h1></a>
-    <a href="/orderDetails"><h1>订单详情界面</h1></a>
-
+    <div id="middle">
+        <a href="/login"><h1>登录界面</h1></a>
+        <a href="/orderDetails"><h1>订单详情界面</h1></a>
+    </div>
 <jsp:include page="WEB-INF/pages/basic/bottom.jsp"></jsp:include>
 </body>
 </html>
