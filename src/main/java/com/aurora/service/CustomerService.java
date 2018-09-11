@@ -1,10 +1,13 @@
 package com.aurora.service;
 
 import com.aurora.dao.CustomerDAO;
+import com.aurora.model.dto.PageDTO;
 import com.aurora.model.entity.Customer;
 import com.aurora.util.MyBatisUtil;
 
 import org.apache.ibatis.session.SqlSession;
+
+import java.util.List;
 
 public class CustomerService {
 
@@ -28,4 +31,16 @@ public class CustomerService {
         System.out.println(customerId);
         return customerId;
     }
+
+    public Integer queryCountCustomer(){
+        Integer countCustomer=customerDAO.getCountCustomer();
+        return countCustomer;
+    }
+
+    public PageDTO<Customer> queryAllPage(PageDTO pageDTO){
+        List<Customer> list=customerDAO.getAllByPage(pageDTO);
+        pageDTO.setModelList(list);
+        return pageDTO;
+    }
+
 }

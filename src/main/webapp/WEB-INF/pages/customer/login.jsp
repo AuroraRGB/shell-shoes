@@ -11,14 +11,16 @@
     <title>登录</title>
 </head>
 <body>
-<jsp:include page="/WEB-INF/pages/basic/top.jsp"></jsp:include>
-    <div id="middle">
-       <form action="loginServlet">
-           <input type="text" name="userName" placeholder="请输入用户名"><br>
-           <input type="password" name="userPassword" placeholder="请输入密码"><br>
-           <button type="submit">登录</button>
-       </form>
-      </div>
-<jsp:include page="/WEB-INF/pages/basic/bottom.jsp"></jsp:include>
+
+    <jsp:include page="/WEB-INF/pages/basic/top.jsp"></jsp:include>
+        <div id="middle">
+           <form action="loginServlet">
+               <input type="text" name="userName" placeholder="请输入用户名"><br>
+               <input type="password" name="userPassword" placeholder="请输入密码"><br>
+               <button type="submit">登录</button>
+           </form>
+          </div>
+    <jsp:include page="/WEB-INF/pages/basic/bottom.jsp"></jsp:include>
+
 </body>
 </html>

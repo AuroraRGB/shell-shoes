@@ -170,4 +170,10 @@ where my.order_number=#{orderNumber} and my.cust_id=#{custId}
              on detail.shoes_id = s2.shoes_id
     where my.cust_id=#{custId};
   </select>
+
+  <select id="queryByCountOrderNumber" resultType="java.lang.Integer">
+    select count(distinct order_number)
+    from myorder
+    where cust_id=#{custId};
+  </select>
 </mapper>

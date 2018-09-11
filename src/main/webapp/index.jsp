@@ -14,10 +14,10 @@
 <body>
 
 <jsp:include page="WEB-INF/pages/basic/top.jsp"></jsp:include>
-
     <div id="middle">
         <a href="/login"><h1>登录界面</h1></a>
         <a href="/orderDetails"><h1>订单详情界面</h1></a>
+        <a href="/customerAllByPageServlet"><h1>用户分页显示</h1></a>
     </div>
 <jsp:include page="WEB-INF/pages/basic/bottom.jsp"></jsp:include>
 </body>

@@ -11,6 +11,7 @@
     <title>注册界面</title>
 </head>
 <body>
+
     <form action="${pageContext.request.contextPath}/Registered" method="post">
         <input type="hidden" name="token" value="<%=session.getAttribute("token")%>">
         用户名    ：<input type="text" name="userName">
@@ -18,5 +19,6 @@
         用户手机号 ：<input type="number" name="userPhone">
         <input type="submit" value="注册">
     </form>
+
 </body>
 </html>

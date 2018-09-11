@@ -2,6 +2,7 @@ package com.aurora.dao;
 
 import com.aurora.model.dto.OrderDetailsDTO;
 import com.aurora.model.dto.OrderQueryById;
+import com.aurora.model.dto.PageDTO;
 import com.aurora.model.entity.Myorder;
 import org.apache.ibatis.annotations.Param;
 
@@ -23,4 +24,8 @@ public interface MyorderDAO extends MyBatisBaseDao<Myorder, Integer> {
     List<OrderQueryById>  queryById(@Param("orderNumber") String orderNumber, @Param("custId") Integer custId);
 
     List<OrderDetailsDTO> queryByCustId(@Param("custId") Integer custId);
+    //获取order总数
+    Integer               queryByCountOrderNumber(@Param("custId") Integer custId);
+    //
+    List<Myorder>         queryAllByPage(@Param("pageDTO") PageDTO pageDTO,@Param("custId") Integer custId);
 }

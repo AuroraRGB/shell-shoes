@@ -151,4 +151,16 @@
     from customer
     where cust_name = #{customerName}
   </select>
+
+  <select id="getCountCustomer" resultType="java.lang.Integer">
+    select count(cust_id)
+    from customer
+  </select>
+
+  <select id="getAllByPage" parameterType="com.aurora.model.dto.PageDTO" resultType="com.aurora.model.entity.Customer">
+    select
+    <include refid="Base_Column_List" />
+    from customer
+    limit #{startRecord},#{pageSize}
+  </select>
 </mapper>
